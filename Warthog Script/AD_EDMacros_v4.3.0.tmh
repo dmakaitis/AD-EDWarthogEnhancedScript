@@ -5,6 +5,7 @@
 	int mRequestDock, mHangarAutomation, mShowGameStats, mFastModeSwitch, mChatPanelGrab, mSignalLights, mSignalLightsLong, mReportCrimesToggle, mBoostBrake;
 	int mNAVBeaconWing, mNAVBeaconOff, mNAVBeaconToggle, mJumpMidSubSys, mJumpPrevSubSys, mJumpNextSubSys, mNextTurretModeX1, mNextTurretModeX2;
 	int mThrottleFwdOnly, mThrottleFullScale, mThrottlePrecision, mThrottleTrimmed, mThrottleFullNonLinear, mThrottleFwdNonLinear, mThrottleFullScaleCustom; 	// Configured for use in AD_EDHardware.tmh
+	int mSetDestinationFromClipboard;
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------//
 // MACROS: SPECIALISED SEQUENCES //																// MACROS Include a series of automated key presses to perform a specific task.
@@ -199,8 +200,14 @@
 		mBoostBrake = CHAIN(																	// MACRO: [PVP] Engine Boost + Auto-Brake
 			PULSE+EngineBoost,			D(666),													// 	Boost for a short period, then..	(shorter time = slower boost speed)
 			PULSE+LandingGear,			D(3600),												//	Toggle Landing Gear as 'Air-Brake', then..
-			PULSE+LandingGear);	}																//	Close Landing Gear
+			PULSE+LandingGear);																//	Close Landing Gear
 
+		mSetDestinationFromClipboard = CHAIN(
+			LOCK+PULSE+UINextPanel,		D(100),
+			PULSE+UISelect,				D(50),
+			PULSE+PasteFromClipboard,	D(50),
+			PULSE+QuickCommsPanel,		LOCK);
+	}
 
 	int initEscapeVector() {																	// MACRO: Disengage Defensively + Emergency Escape Vector (Hold Pinky Trigger)
 		if(!StartupLock) {																		// *This line is only required to prevent running on startup

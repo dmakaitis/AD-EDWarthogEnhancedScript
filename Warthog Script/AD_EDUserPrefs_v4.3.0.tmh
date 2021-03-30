@@ -26,7 +26,7 @@
 														// For All TM Rudder Pedals Users.	Linear Curve = 0 (default)	Use Joystick Curve Toggle = 1
 														//	[NOTE: Please ensure both UseRuddersT16000 & UseRuddersTPR are NOT = 1. Only enable your device plugged in, and disable the other, or this function will error]
 
-	define HeadtrackPref		0						// Choose your preferred Headtracking hardware preset for mapping of the Center/Reset Orientation to Engine Operate Ign/Norm LEFT UP:
+	define HeadtrackPref		2						// Choose your preferred Headtracking hardware preset for mapping of the Center/Reset Orientation to Engine Operate Ign/Norm LEFT UP:
 														// 	Options: 	Mouse Headlook Center 	= 0 (default)	(Choose if you have NO dedicated headtracking hardware)
 														//				TrackIR Center			= 1				(Choose if you use TrackIR head tracking system or related hardware like Tobi Eye Tracker)
 														//				Reset HMD Orientation	= 2 			(Choose if you are a VR User with a Head Mounted Display)
@@ -62,7 +62,7 @@
 
 	define DisableLEFTTHRAxis	0						// Whenever a Throttle Preset is applied, it is applied to both the Left & Right Throttle Axes. ED only requires one to be mapped. This option allows you to disable the Left Throttle Axis if you require the mappings for another device axis in the virtual device.
 														// 	 Options:	Enable Left Axis = 0 (default)				Disable Left Axis = 1
-	define SyncLEFTTHRAxis 		1						// Whenever a Throttle Preset is applied, this ensures the preset is applied to both the Left & Right Throttle Axes. Disabling this will cause the Left Throttle Axis to maintain its full range regardless of the preset that is used & allow mapping of Left Throttle independantly to the Right.
+	define SyncLEFTTHRAxis 		0						// Whenever a Throttle Preset is applied, this ensures the preset is applied to both the Left & Right Throttle Axes. Disabling this will cause the Left Throttle Axis to maintain its full range regardless of the preset that is used & allow mapping of Left Throttle independantly to the Right.
 														//   Options:   Enable Left Axis Sync = 1 (default)         Disable Left Axis Sync = 0
 
 		// SHIP/SRV PIP CONFIG //
@@ -127,7 +127,8 @@
 		// AUTOPILOT BUTTON OVERRIDES //				// [NOTE:	Most other keys in AD_EDKeyMap file should also work as well as the Macros!]
 	define APEngageShort		mSignalLights			//	Standard Short Press (No Mods)	= mSignalLights 	(default)
 	define APEngageLong			mSignalLightsLong		//	Standard Long Press  (No Mods)	= mSignalLightsLong (default)
-	define APEngagePinkyShort	mRequestDock			//	Pinky Modifier + Short Press	= mRequestDock 		(default)
+//	define APEngagePinkyShort	mRequestDock			//	Pinky Modifier + Short Press	= mRequestDock 		(default)
+	define APEngagePinkyShort	mSetDestinationFromClipboard
 	define APEngagePinkyLong	mHangarAutomation		//	Pinky Modifier + Long Press		= mHangarAutomation	(default)
 	define APEngageCMSShort		mNAVBeaconWing			//	CMS Modifier   + Short Press	= mNAVBeaconWing 	(default)
 	define APEngageCMSLong		mNAVBeaconOff			//	CMS Modifier   + Long Press		= mNAVBeaconOff 	(default)
